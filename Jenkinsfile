@@ -1,10 +1,8 @@
 pipeline {
     agent any 
     stages {
-        stage('Clean & Clone repository') { 
+        stage('Clean & Compile') { 
             steps {
-                sh "rm -rf maven-imagined"
-                sh "git clone https://github.com/dreambeam/maven-imagined.git"
                 sh "mvn clean compile"
             }
         }
