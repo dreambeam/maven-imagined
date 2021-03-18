@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Dockerize') {
             steps {
-                sh "docker build -it dreambeam/springboot:${BUILD_ID} . "
+                sh "docker build -i dreambeam/springboot:${BUILD_ID} . "
             }
         }
         
