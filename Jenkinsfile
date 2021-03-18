@@ -34,7 +34,7 @@ pipeline {
      
         stage('Archiving') {
             steps {
-                archiveArtifacts '**/target/*.jar', fingerprint: true
+                archiveArtifacts '**/target/springboot-docker.jar', fingerprint: true
             }
         }
     }
