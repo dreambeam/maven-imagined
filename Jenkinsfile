@@ -20,7 +20,18 @@ pipeline {
                 sh "mvn package "
             }
         }
+        stage('Dockerize') {
+            steps {
+                sh "docker build -it dreambeam/springboot:${BUILD_ID} . "
+            }
+        }
         
+        stage('Deploy') {
+            steps {
+                sh "docker run -d -p 8081:8080 dreambeam/springboot:${BUILD_ID} "
+            }
+        } 
+     
         stage('Archiving') {
             steps {
                 archiveArtifacts '**/target/*.jar'
